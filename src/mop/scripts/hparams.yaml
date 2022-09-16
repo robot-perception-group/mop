@@ -1,0 +1,53 @@
+name: "conv_nmg_vae_2022_01_25"
+PL_GLOBAL_SEED: 123
+
+num_wrkrs: 30
+data: "amass_humor"
+datapath: "/home/nsaini/Datasets/AMASS_humor_processed/amass_humor_all.pkl"
+mean_std_path: "/home/nsaini/Datasets/AMASS_humor_processed/amass_humor_all_mean_std.npz"
+time_budget: None
+check_val_every_n_epoch: 10
+
+max_epochs: 4000
+lr: 0.00003
+batch_size: 30
+latent_dim: 64
+dim_feedfwd: 1024
+num_layers: 8
+num_heads: 4
+activation: "gelu"
+ae_type: "vae"
+overfit_mode: False
+input_seq_len: 25
+output_seq_len: 25  #for now it should be more than or equal to the input_seq_len
+seq_begin: null
+rec_pose_weight: [1,2,5]
+rec_trans_weight: 1
+rec_joint_position_weight: 1
+conts_loss_weight: 1
+conts_speed_loss_weight: 1
+kl_annealing: True
+kl_annealing_cycle_epochs: [10,30,50]  #monotonic and constant region of cyclic annealing (both to be same here) 
+
+enc_arch: "convenc"
+dec_arch: "convdec"
+enc_mask_symmetric: True
+dec_mask_symmetric: True
+enc_past_attn_frame_len: null   # -1 for all the past frames and None for no mask
+dec_past_attn_frame_len: null   # -1 for all the past frames and None for no mask
+
+use_contacts: False
+gt_conts_for_speed_loss: True
+
+
+encode_full_seq: False # it has effect only on conv_nmg_dvae
+
+# VQ params
+codebook_size: 1000
+latent_len: 25
+straight_through: False
+tsne_log_freq: null
+init_gumbel_softmax_temp: 1
+min_gumbel_softmax_temp: 0.5
+gumbel_temp_anneal_rate: 0.001
+lr_decay_rate: 1
