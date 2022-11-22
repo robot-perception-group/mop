@@ -1,5 +1,5 @@
 
-from nmg.utils import transforms as p3dt
+from mop.utils import transforms as p3dt
 from human_body_prior.body_model.body_model import BodyModel
 import os
 import os.path as osp

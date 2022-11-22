@@ -4,7 +4,7 @@ import os.path as osp
 from torch.functional import norm
 from torch.utils.data import Dataset
 from torchvision import transforms
-from nmg.utils import transforms as p3dt
+from mop.utils import transforms as p3dt
 import numpy as np
 import pickle as pkl
 import numpy as np

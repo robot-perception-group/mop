@@ -1,4 +1,3 @@
-from nmg.dsets.hact12 import hact12
 import pytorch_lightning as pl
 import os
 import os.path as osp
