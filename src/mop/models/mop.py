@@ -14,7 +14,6 @@ from ..utils import transforms as p3dt
 from ..utils.fid import calculate_frechet_distance
 from torch.autograd import Variable
 from human_body_prior.body_model.body_model import BodyModel
-from ..models import stgcn
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 from ..utils import config
